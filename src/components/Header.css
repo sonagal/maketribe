@@ -1,0 +1,62 @@
+/* src/Header.css */
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #004d00;
+  padding: 10px 20px;
+  color: white;
+}
+
+.nav-links {
+  display: flex;
+  gap: 20px;
+}
+
+.nav-item {
+  font-weight: bold;
+}
+
+.logo-invite {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.logo {
+  font-size: 24px;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+}
+
+.logo-dot {
+  color: #00ff00;
+  font-size: 30px;
+  margin-right: 5px;
+}
+
+.invite-button {
+  background-color: #e0e0e0;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.profile {
+  display: flex;
+  align-items: center;
+}
+
+.profile-pic {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  margin-right: 10px;
+}
+
+.dropdown-icon {
+  font-size: 18px;
+  color: #b0b0b0;
+}

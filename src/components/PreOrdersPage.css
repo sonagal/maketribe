@@ -1,0 +1,44 @@
+/* PreOrdersPage.css */
+
+.pre-orders-page {
+    padding: 20px;
+  }
+  
+  .pre-orders-page h2 {
+    font-size: 1.5em;
+    margin-bottom: 20px;
+  }
+  
+  .pre-orders-page table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  
+  .pre-orders-page th, .pre-orders-page td {
+    padding: 10px;
+    border: 1px solid #ddd;
+    text-align: left;
+  }
+  
+  .pre-orders-page th {
+    background-color: #f5f5f5;
+  }
+  
+  .pre-orders-page td img {
+    width: 100px; /* Adjust size as needed */
+    height: auto;
+  }
+  
+  .process-button {
+    background-color: #004400;
+    color: white;
+    border: none;
+    padding: 0.5rem 1rem;
+    cursor: pointer;
+    border-radius: 5px;
+  }
+  
+  .process-button:hover {
+    background-color: #006600;
+  }
+  

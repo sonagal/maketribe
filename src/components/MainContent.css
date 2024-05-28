@@ -1,0 +1,48 @@
+/* MainContent.css */
+
+.main-content {
+    padding: 20px;
+    background-color: #f5f5f5;
+  }
+  
+  .sales, .costs, .summary, .orders, .revenue-trend {
+    margin-bottom: 20px;
+  }
+  
+  .sales h2, .costs h2, .orders h2, .revenue-trend h2 {
+    font-size: 1.5em;
+    margin-bottom: 10px;
+  }
+  
+  .summary {
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  .summary-card {
+    background-color: #ffffff;
+    padding: 15px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    width: 30%;
+    text-align: center;
+  }
+  
+  .orders table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  
+  .orders th, .orders td {
+    padding: 10px;
+    border: 1px solid #ddd;
+    text-align: left;
+  }
+  
+  .revenue-trend .trend-chart {
+    height: 200px;
+    background-color: #ffffff;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+  }
+  
