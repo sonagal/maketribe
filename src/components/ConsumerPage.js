@@ -11,9 +11,13 @@ function ConsumerPage() {
       <ConsumerHeader />
       <main className="main-content">
         <section className="tribe-section">
-          <img src={tribeImage} alt="Make your own Tribe" className="tribe-image" />
-          <h1>Make your own Tribe</h1>
-          <p>
+          <div className="tribe-image-container">
+            <img src={tribeImage} alt="Make your own Tribe" className="tribe-image" />
+            <div className="overlay-text">
+              <h1>Make your own Tribe</h1>
+            </div>
+          </div>
+          <p className="intro-text">
             Invite your family and friends to join maketribe and enjoy our bonus points and discounts together.
             The bigger your tribe, the more benefits you will all get.
           </p>

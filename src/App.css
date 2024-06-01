@@ -1,4 +1,4 @@
-/* App.css */
+/* src/App.css */
 .app-container {
   display: flex;
   flex-direction: column;
@@ -20,7 +20,7 @@
   z-index: 1000;
 }
 
-.main-content {
+.main-wrapper {
   display: flex;
   flex: 1;
   margin-top: 60px; /* Adjust based on header height */
@@ -30,11 +30,19 @@
 .sidebar {
   width: 200px;
   background-color: #f4f4f4;
+  height: calc(100vh - 100px); /* Adjust based on header and footer height */
+  position: fixed;
+  top: 60px; /* Adjust based on header height */
 }
 
-.content {
+.main-content {
   flex: 1;
   padding: 20px;
   background-color: #f5f5f5;
   overflow-y: auto;
+  margin-left: 200px; /* Adjust based on sidebar width */
+}
+
+.main-content.full-width {
+  margin-left: 0;
 }

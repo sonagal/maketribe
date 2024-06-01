@@ -12,13 +12,31 @@
   
   .tribe-section {
     text-align: center;
+    position: relative;
     margin-bottom: 20px;
+  }
+  
+  .tribe-image-container {
+    position: relative;
   }
   
   .tribe-image {
     width: 100%;
     height: auto;
-    margin-bottom: 20px;
+  }
+  
+  .overlay-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    font-size: 2em;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  }
+  
+  .intro-text {
+    color: green; /* Set the text color to green */
   }
   
   .make-tribe {
