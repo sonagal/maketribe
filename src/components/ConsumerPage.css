@@ -12,7 +12,7 @@
   
   .tribe-section {
     text-align: center;
-    margin-bottom: 40px;
+    margin-bottom: 20px;
   }
   
   .tribe-image {
@@ -22,16 +22,16 @@
   }
   
   .make-tribe {
-    margin-top: 40px;
+    text-align: center;
   }
   
   .make-tribe h2 {
-    text-align: center;
     margin-bottom: 20px;
   }
   
   .form-group {
     margin-bottom: 20px;
+    text-align: left;
   }
   
   .form-group label {
