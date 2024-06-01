@@ -1,0 +1,73 @@
+/* src/ConsumerPage.css */
+.consumer-page {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+  }
+  
+  .main-content {
+    flex: 1;
+    padding: 20px;
+  }
+  
+  .tribe-section {
+    text-align: center;
+  }
+  
+  .tribe-image {
+    width: 100%;
+    height: auto;
+  }
+  
+  .make-tribe {
+    margin-top: 40px;
+  }
+  
+  .make-tribe h2 {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  
+  .form-group {
+    margin-bottom: 20px;
+  }
+  
+  .form-group label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+  }
+  
+  .form-group input {
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+  
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+  }
+  
+  table th, table td {
+    border: 1px solid #ccc;
+    padding: 10px;
+    text-align: left;
+  }
+  
+  table th {
+    background-color: #f4f4f4;
+  }
+  
+  footer {
+    background-color: #004d00;
+    color: white;
+    text-align: center;
+    padding: 20px;
+    margin-top: auto;
+  }
+  
