@@ -2,8 +2,7 @@ import React from 'react';
 import ConsumerHeader from './ConsumerHeader';
 import Footer from './Footer'; // Shared footer
 import './ConsumerPage.css';
-import tribeImage from './Logo_maketribe.png'; // Use the uploaded image
-
+import tribeImage from './make_your_own_tribe.png'; // Use the uploaded image
 
 function ConsumerPage() {
   return (

@@ -1,8 +1,7 @@
 import React from 'react';
 import './ConsumerHeader.css';
 import profilePic from './profile-pic.png'; // Ensure this path is correct
-import logo from './make_your_own_tribe.png'; // Import the logo image
-
+import logo from './Logo_maketribe.png'; // Import the logo image
 
 function ConsumerHeader() {
   return (
