@@ -1,0 +1,102 @@
+/* src/ConsumerLandingPage.css */
+.consumer-landing-page {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+  }
+  
+  .main-content {
+    flex: 1;
+    padding: 20px;
+  }
+  
+  .hero-section {
+    position: relative;
+    text-align: center;
+    color: white;
+    margin-bottom: 20px;
+  }
+  
+  .hero-image {
+    width: 100%;
+    height: auto;
+  }
+  
+  .hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  }
+  
+  .hero-overlay h1 {
+    font-size: 3em;
+    margin-bottom: 20px;
+  }
+  
+  .hero-overlay p {
+    font-size: 1.2em;
+    margin-bottom: 20px;
+    max-width: 600px;
+    text-align: center;
+  }
+  
+  .hero-button {
+    background-color: black;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+    font-size: 1em;
+  }
+  
+  .categories-filter {
+    text-align: center;
+    margin: 20px 0;
+  }
+  
+  .categories {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+  }
+  
+  .categories span {
+    font-size: 1.2em;
+    cursor: pointer;
+  }
+  
+  .products-section {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 20px;
+    justify-items: center;
+  }
+  
+  .product-card {
+    padding: 20px;
+    text-align: center;
+    width: 200px;
+  }
+  
+  .product-card img {
+    width: 100%;
+    height: auto;
+    margin-bottom: 10px;
+  }
+  
+  .order-button {
+    background-color: black;
+    color: white;
+    padding: 10px 10px;
+    border: none;
+    cursor: pointer;
+    font-size: 1em;
+  }
+  

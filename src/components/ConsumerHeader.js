@@ -1,16 +1,24 @@
+
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import './ConsumerHeader.css';
 import profilePic from './profile-pic.png'; // Ensure this path is correct
 import logo from './Logo_maketribe.png'; // Import the logo image
 
 function ConsumerHeader() {
+  const navigate = useNavigate();
+
+  const handleMakeATribeClick = () => {
+    navigate('/consumer');
+  };
+
   return (
     <div className="consumer-header">
       <div className="nav-links">
         <span className="nav-item">Shop</span>
         <span className="nav-item">Create & Submit</span>
         <span className="nav-item">Rate & Earn</span>
-        <span className="nav-item">Make a Tribe</span>
+        <span className="nav-item" onClick={handleMakeATribeClick}>Make a Tribe</span> {/* Add onClick handler */}
       </div>
       <div className="right-section">
         <div className="logo">
