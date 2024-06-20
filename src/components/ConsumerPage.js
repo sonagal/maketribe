@@ -4,7 +4,6 @@ import Footer from './Footer'; // Shared footer
 import './ConsumerPage.css';
 import tribeImage from './make_your_own_tribe.png'; // Use the uploaded image
 
-
 function ConsumerPage() {
   return (
     <div className="consumer-page">
@@ -24,22 +23,25 @@ function ConsumerPage() {
         </section>
         <section className="make-tribe">
           <h2>Make a Tribe</h2>
-          <form>
-            <div className="form-group">
-              <label htmlFor="tribe-name">1. Name your Tribe</label>
-              <input type="text" id="tribe-name" placeholder="Wonderful Tribe" />
-            </div>
-            <div className="form-group">
-              <label htmlFor="add-friends">2. Add friends</label>
-              <input type="email" id="add-friends" placeholder="friend@example.com" />
-            </div>
-            <div className="form-group">
-              <p>3. Enjoy benefits!</p>
-              <p>
-                Once your friends join maketribe and make their first purchase, you will be able to use all of the below mentioned benefits and more!
-              </p>
-            </div>
-          </form>
+          <div className="form-group-container">
+            <form>
+              <div className="form-group">
+                <label htmlFor="tribe-name">1. Name your Tribe</label>
+                <input type="text" id="tribe-name" placeholder="Wonderful Tribe" />
+              </div>
+              <div className="form-group">
+                <label htmlFor="add-friends">2. Add friends</label>
+                <input type="email" id="add-friends" placeholder="friend@example.com" />
+              </div>
+              <div className="form-group-inline">
+                <label htmlFor="enjoy-benefits">3. Enjoy benefits!</label>
+                <p id="enjoy-benefits">Once your friends join maketribe and make their first purchase, you will be able to use all of the below mentioned benefits and more!</p>
+              </div>
+              <div className="submit-button-container">
+                <button type="submit" className="submit-button">Submit</button>
+              </div>
+            </form>
+          </div>
           <table>
             <thead>
               <tr>

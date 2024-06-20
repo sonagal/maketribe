@@ -1,93 +1,128 @@
-/* src/ConsumerPage.css */
-.consumer-page {
-    display: flex;
-    flex-direction: column;
-    min-height: 100vh;
-  }
-  
-  .main-content {
-    flex: 1;
-    padding: 20px;
-  }
-  
-  .tribe-section {
-    text-align: center;
-    position: relative;
-    margin-bottom: 20px;
-  }
-  
-  .tribe-image-container {
-    position: relative;
-  }
-  
-  .tribe-image {
-    width: 100%;
-    height: auto;
-  }
-  
-  .overlay-text {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    color: white;
-    font-size: 2em;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
-  }
-  
-  .intro-text {
-    color: green; /* Set the text color to green */
-  }
-  
-  .make-tribe {
-    text-align: center;
-  }
-  
-  .make-tribe h2 {
-    margin-bottom: 20px;
-  }
-  
-  .form-group {
-    margin-bottom: 20px;
-    text-align: left;
-  }
-  
-  .form-group label {
-    display: block;
-    font-weight: bold;
-    margin-bottom: 5px;
-  }
-  
-  .form-group input {
-    width: 100%;
-    padding: 10px;
-    margin-top: 5px;
-    margin-bottom: 10px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-  }
-  
-  table {
-    width: 100%;
-    border-collapse: collapse;
-    margin-top: 20px;
-  }
-  
-  table th, table td {
-    border: 1px solid #ccc;
-    padding: 10px;
-    text-align: left;
-  }
-  
-  table th {
-    background-color: #f4f4f4;
-  }
-  
-  footer {
-    background-color: #004d00;
-    color: white;
-    text-align: center;
-    padding: 20px;
-    margin-top: auto;
-  }
-  
+.tribe-section {
+  text-align: center;
+  position: relative;
+  margin-bottom: 20px;
+}
+
+.tribe-image-container {
+  position: relative;
+}
+
+.tribe-image {
+  width: 100%;
+  height: auto;
+}
+
+.overlay-text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 100%;
+  transform: translate(-50%, -50%);
+  color: white;
+  font-size: 3em; /* Increase the font size */
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.intro-text {
+  color: green; /* Set the text color to green */
+  text-align: center;
+}
+
+.make-tribe {
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start; /* Align items to the start */
+  width: 80%; /* Ensure it takes the same width as the table */
+  margin: 0 auto; /* Center the whole section */
+}
+
+.make-tribe h2 {
+  width: 100%;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.make-tribe .form-group-container {
+  width: 100%; /* Ensure form groups take full width of parent */
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start; /* Align items to the start */
+}
+
+.make-tribe .form-group,
+.make-tribe .form-group-inline {
+  width: 100%; /* Ensure form groups take full width of parent */
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-bottom: 20px;
+  text-align: left;
+}
+
+.make-tribe .form-group label {
+  width: 200px; /* Fixed width for labels */
+  font-weight: bold;
+  margin-bottom: 0; /* Remove margin bottom */
+  text-align: left; /* Align text to the left */
+  padding-right: 10px; /* Add some space between label and input */
+}
+
+.make-tribe .form-group-inline label {
+  width: 200px; /* Fixed width for labels */
+  font-weight: bold;
+  margin-bottom: 0; /* Remove margin bottom */
+  text-align: left; /* Align text to the left */
+  padding-right: 10px; /* Add some space between label and text */
+}
+
+.make-tribe .form-group input {
+  width: 50%; /* Adjust input width to 50% */
+  padding: 5px; /* Reduce padding */
+  margin-top: 2px; /* Reduce margin top */
+  margin-bottom: 5px; /* Reduce margin bottom */
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.make-tribe .form-group-inline p {
+  margin: 0; /* Remove margin for paragraphs */
+  padding-left: 0; /* Add padding to align with labels */
+  flex: 1; /* Allow text to take remaining space */
+}
+
+.make-tribe .submit-button-container {
+  width: 100%;
+  display: flex;
+  justify-content: center; /* Center the submit button */
+  margin-top: 10px;
+  margin-bottom: 20px;
+}
+
+.make-tribe .submit-button {
+  width: 200px; /* Increase width of submit button */
+  padding: 10px;
+  background-color: #000;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.make-tribe table {
+  width: 80%; /* Adjust table width to fit within the centered section */
+  margin: 0 auto; /* Center the table */
+  margin-top: 20px;
+  border-collapse: collapse;
+}
+
+.make-tribe table th, .make-tribe table td {
+  border: 1px solid #ccc;
+  padding: 10px;
+  text-align: left;
+}
+
+.make-tribe table th {
+  background-color: #f4f4f4;
+}
