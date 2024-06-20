@@ -1,26 +1,29 @@
 /* Footer.css */
 .footer {
-    background-color: #004400;
-    color: white;
-    padding: 2px 20px;
-    text-align: center;
-  }
-  
-  .footer-links {
-    margin-bottom: 0.3rem;
-  }
-  
-  .footer-links a {
-    color: white;
-    margin: 0 0.5rem;
-    text-decoration: none;
-  }
-  
-  .footer-links a:hover {
-    text-decoration: underline;
-  }
-  
-  .footer-branding {
-    font-size: 1rem;
-  }
-  
+  background-color: #004400;
+  color: white;
+  padding: 1px 0; /* Remove left and right padding */
+  text-align: center;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.footer-links {
+  margin-bottom: 0.3rem;
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+}
+
+.footer-links a {
+  color: white;
+  text-decoration: none;
+}
+
+.footer-links a:hover {
+  text-decoration: underline;
+}
+
+.footer-branding {
+  font-size: 1rem;
+}

@@ -1,0 +1,122 @@
+/* LandingPage.css */
+.landing-page {
+    font-family: Arial, sans-serif;
+    color: #333;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .main-content {
+    text-align: center;
+    padding: 100px 20px 20px; /* Ensure content is not hidden under the fixed header */
+    margin: 0;
+  }
+  
+  .header-image {
+    width: 100%;
+    max-height: 400px;
+    object-fit: cover;
+    margin-bottom: 20px;
+  }
+  
+  .mission-statement {
+    font-size: 24px;
+    color: #a30564;
+    margin-bottom: 40px;
+  }
+  
+  .cta-section {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    margin-bottom: 40px;
+    position: relative;
+  }
+  
+  .cta-section::before {
+    content: '';
+    position: absolute;
+    left: 50%;
+    top: 0;
+    bottom: 0;
+    width: 1px;
+    background-color: black;
+    transform: translateX(-50%);
+  }
+  
+  .cta-box-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .cta-box {
+    width: 150px;
+    padding: 20px;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: white;
+  }
+  
+  .cta-box.buy {
+    background-color: #004d00;
+    margin-bottom: 10px;
+  }
+  
+  .cta-box.sell {
+    background-color: #a30564;
+    margin-bottom: 10px;
+  }
+  
+  .cta-text {
+    list-style: none;
+    padding: 0;
+    text-align: left;
+    max-width: 250px;
+    margin-left: 20px; /* Increase the space between the line and text */
+  }
+  
+  .cta-text li {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+    position: relative;
+    padding-left: 25px; /* Space for larger bullet points */
+  }
+  
+  .cta-text li::before {
+    content: '•';
+    font-size: 1.5em; /* Increase the size of bullet points */
+    position: absolute;
+    left: 0;
+  }
+  
+  .cta-box-wrapper:nth-child(1) .cta-text li::before {
+    color: #004d00; /* Green bullet points for 'I want to buy' */
+  }
+  
+  .cta-box-wrapper:nth-child(2) .cta-text li::before {
+    color: #a30564; /* Red bullet points for 'I want to sell' */
+  }
+  
+  @media (max-width: 768px) {
+    .cta-section {
+      flex-direction: column;
+    }
+  
+    .cta-section::before {
+      display: none;
+    }
+  
+    .cta-box-wrapper {
+      width: 100%;
+      margin-bottom: 20px;
+    }
+  
+    .cta-box {
+      width: auto;
+    }
+  }
+  

@@ -1,60 +1,66 @@
 /* src/ConsumerHeader.css */
 .consumer-header {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    background-color: #004d00;
-    padding: 10px 20px;
-    color: white;
-  }
-  
-  .nav-links {
-    display: flex;
-    gap: 20px;
-  }
-  
-  .nav-item {
-    font-weight: bold;
-  }
-  
-  .right-section {
-    display: flex;
-    align-items: center;
-    gap: 20px; /* Space between logo, invite button, and profile picture */
-  }
-  
-  .logo {
-    display: flex;
-    align-items: center;
-  }
-  
-  .logo .logo-image {
-    width: 60px; /* Adjust the width as needed */
-    height: 40px; /* Adjust the height as needed */
-  }
-  
-  .invite-button {
-    background-color: #e0e0e0;
-    border: none;
-    padding: 10px 20px;
-    border-radius: 5px;
-    cursor: pointer;
-  }
-  
-  .profile {
-    display: flex;
-    align-items: center;
-  }
-  
-  .profile-pic {
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    margin-right: 10px;
-  }
-  
-  .dropdown-icon {
-    font-size: 18px;
-    color: #b0b0b0;
-  }
-  
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #004d00;
+  padding: 10px 10px;
+  color: white;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1000;
+  box-sizing: border-box;
+}
+
+.nav-links {
+  display: flex;
+  gap: 20px;
+  padding-left: 20px;
+}
+
+.nav-item {
+  font-weight: bold;
+}
+
+.right-section {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  padding-right: 20px;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+}
+
+.logo .logo-image {
+  width: 60px;
+  height: 40px;
+}
+
+.invite-button {
+  background-color: #e0e0e0;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.profile {
+  display: flex;
+  align-items: center;
+}
+
+.profile-pic {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  margin-right: 30px;
+}
+
+.dropdown-icon {
+  font-size: 18px;
+  color: #b0b0b0;
+}
