@@ -11,6 +11,10 @@ function LandingPage() {
     navigate('/seller-registration');
   };
 
+  const handleBuyClick = () => {
+    navigate('/buyer-registration');
+  };
+
   return (
     <div className="landing-page">
       <LandingPageHeader />
@@ -21,7 +25,7 @@ function LandingPage() {
         </h1>
         <div className="cta-section">
           <div className="cta-box-wrapper">
-            <div className="cta-box buy">
+            <div className="cta-box buy" onClick={handleBuyClick}>
               <h2>I want to buy</h2>
             </div>
             <ul className="cta-text">
