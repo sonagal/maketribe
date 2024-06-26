@@ -5,6 +5,7 @@ import LandingPage from './components/LandingPage';
 import SellerRegistration from './components/SellerRegistration';
 import BuyerRegistration from './components/BuyerRegistration';
 import LoginPage from './components/LoginPage';
+import CreateNewDesignPage from './components/CreateNewDesignPage';
 import PreOrdersPage from './components/PreOrdersPage';
 import BidsPage from './components/BidsPage';
 import MainContent from './components/MainContent';
@@ -37,10 +38,10 @@ function AppContent() {
         {!isLandingPage && !isSellerRegistration && !isBuyerRegistration && !isLoginPage && location.pathname !== '/consumer' && location.pathname !== '/consumer-landing' && <Sidebar />}
         <div className={`main-content ${isLandingPage || isSellerRegistration || isBuyerRegistration || isLoginPage || location.pathname === '/consumer' || location.pathname === '/consumer-landing' ? 'full-width' : ''}`}>
           <Routes>
-            <Route exact path="/" element={<LandingPage />} />
+            <Route exact path="/" element={<CreateNewDesignPage />} />
+            <Route path="/" element={<LandingPage />} />
             <Route path="/seller-registration" element={<SellerRegistration />} />
             <Route path="/buyer-registration" element={<BuyerRegistration />} />
-            <Route path="/login" element={<LoginPage />} />
             <Route path="/login" element={<LoginPage />} />
             <Route path="/seller-dashboard" element={<MainContent />} />
             <Route path="/pre-orders" element={<PreOrdersPage />} />
@@ -56,3 +57,4 @@ function AppContent() {
 }
 
 export default App;
+
