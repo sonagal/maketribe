@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import Header from './Header';
 import Footer from './Footer';
 import './CreateNewDesignPage.css';
@@ -8,6 +9,7 @@ function CreateNewDesignPage() {
   const [prompt, setPrompt] = useState('');
   const [images, setImages] = useState([]);
   const [imagePreview, setImagePreview] = useState('');
+  const navigate = useNavigate();
 
   const handlePromptChange = (e) => {
     setPrompt(e.target.value);
@@ -37,6 +39,10 @@ function CreateNewDesignPage() {
     }
   };
 
+  const handleModifyExistingDesign = () => {
+    navigate('/modify-existing-design');
+  };
+
   return (
     <div className="create-new-design-page">
       <Header />
@@ -47,7 +53,7 @@ function CreateNewDesignPage() {
         </div>
         <div className="sub-tabs">
           <button className="sub-tab active">Create new design</button>
-          <button className="sub-tab">Modify existing design</button>
+          <button className="sub-tab" onClick={handleModifyExistingDesign}>Modify existing design</button>
           <button className="sub-tab">Create variations of existing design</button>
         </div>
         <div className="design-form">

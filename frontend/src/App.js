@@ -6,6 +6,7 @@ import SellerRegistration from './components/SellerRegistration';
 import BuyerRegistration from './components/BuyerRegistration';
 import LoginPage from './components/LoginPage';
 import CreateNewDesignPage from './components/CreateNewDesignPage';
+import ModifyExistingDesignPage from './components/ModifyExistingDesignPage';
 import PreOrdersPage from './components/PreOrdersPage';
 import BidsPage from './components/BidsPage';
 import MainContent from './components/MainContent';
@@ -30,15 +31,17 @@ function AppContent() {
   const isSellerRegistration = location.pathname === '/seller-registration';
   const isBuyerRegistration = location.pathname === '/buyer-registration';
   const isLoginPage = location.pathname === '/login';
+  const isModifyExistingDesign = location.pathname === '/modify-existing-design';
 
   return (
     <div className="app-container">
       {!isLandingPage && !isSellerRegistration && !isBuyerRegistration && !isLoginPage && <Header />}
-      <div className={`main-wrapper ${location.pathname === '/consumer' || location.pathname === '/consumer-landing' ? 'no-sidebar' : ''}`}>
-        {!isLandingPage && !isSellerRegistration && !isBuyerRegistration && !isLoginPage && location.pathname !== '/consumer' && location.pathname !== '/consumer-landing' && <Sidebar />}
-        <div className={`main-content ${isLandingPage || isSellerRegistration || isBuyerRegistration || isLoginPage || location.pathname === '/consumer' || location.pathname === '/consumer-landing' ? 'full-width' : ''}`}>
+      <div className={`main-wrapper ${location.pathname === '/consumer' || location.pathname === '/consumer-landing' || isModifyExistingDesign ? 'no-sidebar' : ''}`}>
+        {!isLandingPage && !isSellerRegistration && !isBuyerRegistration && !isLoginPage && location.pathname !== '/consumer' && location.pathname !== '/consumer-landing' && !isModifyExistingDesign && <Sidebar />}
+        <div className={`main-content ${isLandingPage || isSellerRegistration || isBuyerRegistration || isLoginPage || location.pathname === '/consumer' || location.pathname === '/consumer-landing' || isModifyExistingDesign ? 'full-width' : ''}`}>
           <Routes>
             <Route exact path="/" element={<CreateNewDesignPage />} />
+            <Route path="/modify-existing-design" element={<ModifyExistingDesignPage />} />
             <Route path="/" element={<LandingPage />} />
             <Route path="/seller-registration" element={<SellerRegistration />} />
             <Route path="/buyer-registration" element={<BuyerRegistration />} />
@@ -57,4 +60,5 @@ function AppContent() {
 }
 
 export default App;
+
 

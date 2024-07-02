@@ -12,6 +12,8 @@ from torchvision import transforms
 from transformers import BlipProcessor, BlipForConditionalGeneration
 import uuid
 import shutil
+from io import BytesIO
+import aiofiles
 
 app = FastAPI()
 
@@ -34,6 +36,7 @@ app.add_middleware(
     allow_methods=["*"],
     allow_headers=["*"],
 )
+
 
 # Load VGG19 model
 vgg = vgg19(pretrained=True).features
@@ -182,3 +185,46 @@ async def create_design(
         # Clean up temp files
         shutil.rmtree(temp_dir)
         logging.info(f"Deleted temp directory: {temp_dir}")
+
+
+@app.post("/edit-image")
+async def edit_image(prompt: str = Form(...), image: UploadFile = File(...), mask: UploadFile = File(...)):
+    try:
+        # Create a unique directory for this request
+        unique_id = str(uuid.uuid4())
+        temp_dir = f"temp_image_edit/{unique_id}"
+        os.makedirs(temp_dir, exist_ok=True)
+
+        # Save the uploaded image and mask temporarily
+        image_path = os.path.join(temp_dir, "temp_image.png")
+        mask_path = os.path.join(temp_dir, "temp_mask.png")
+
+        async with aiofiles.open(image_path, 'wb') as out_file:
+            image_data = await image.read()
+            await out_file.write(image_data)
+
+        async with aiofiles.open(mask_path, 'wb') as out_file:
+            mask_data = await mask.read()
+            await out_file.write(mask_data)
+
+        # Use OpenAI API to edit the image
+        response = client.images.edit(
+            model="dall-e-2",
+            image=open(image_path, "rb"),
+            mask=open(mask_path, "rb"),
+            prompt=prompt,
+            n=1,
+            size="1024x1024"
+        )
+
+        # Get the generated image URL
+        image_url = response.data[0].url
+
+        # Remove the temporary files
+        os.remove(image_path)
+        os.remove(mask_path)
+        os.rmdir(temp_dir)
+
+        return {"editedImageUrl": image_url}
+    except Exception as e:
+        return {"error": str(e)}
