@@ -25,5 +25,5 @@ yarn-debug.log*
 yarn-error.log*
 
 # Large files
-/frontend/node_modules/.cache/default-development/0.pack
+/frontend/node_modules/.cache/default-development/*.pack
 /backend/.venv/lib/python3.9/site-packages/torch/lib/libtorch_cpu.dylib
