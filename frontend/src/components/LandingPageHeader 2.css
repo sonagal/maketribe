@@ -1,0 +1,52 @@
+/* src/LandingPageHeader.css */
+.landing-page-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #004d00;
+    padding: 10px; /* Remove left and right padding */
+    color: white;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+    box-sizing: border-box; /* Ensure padding is included in the total width */
+  }
+  
+  .nav-links {
+    display: flex;
+    gap: 20px;
+    padding-left: 20px; /* Add some padding to the left */
+  }
+  
+  .nav-item {
+    font-weight: bold;
+    cursor: pointer;
+  }
+  
+  .right-section {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    padding-right: 20px; /* Add some padding to the right */
+  }
+  
+  .logo {
+    display: flex;
+    align-items: center;
+  }
+  
+  .logo .logo-image {
+    width: 60px;
+    height: 40px;
+  }
+  
+  .login-button {
+    background-color: #e0e0e0;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    white-space: nowrap; /* Ensure the text does not wrap */
+  }
+  

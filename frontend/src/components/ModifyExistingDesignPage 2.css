@@ -1,0 +1,70 @@
+/* ModifyExistingDesignPage.css */
+.modify-existing-design-page {
+    font-family: Arial, sans-serif;
+    color: #333;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .main-content {
+    padding: 80px 20px;
+  }
+  
+  .tabs, .sub-tabs {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+  }
+  
+  .tab, .sub-tab {
+    padding: 10px 20px;
+    border: none;
+    background-color: #eee;
+    cursor: pointer;
+  }
+  
+  .tab.active, .sub-tab.active {
+    background-color: #004d00;
+    color: white;
+  }
+  
+  .edit-instructions {
+    color: #15758A;
+    margin-bottom: 20px;
+  }
+  
+  .edit-container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+  
+  .edit-container input[type="file"] {
+    margin-bottom: 10px;
+  }
+  
+  .edit-container input[type="text"] {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+  
+  .edit-container button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    background-color: black;
+    color: white;
+  }
+  
+  .design-preview {
+    margin-top: 20px;
+    text-align: center;
+  }
+  
+  .design-preview img {
+    max-width: 100%;
+    height: auto;
+  }
+  

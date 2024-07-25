@@ -1,6 +1,0 @@
-#!/Users/fredbone/Library/Mobile Documents/com~apple~CloudDocs/Maketribe/maketribe-app/backend/.venv/bin/python
-import sys
-from uvicorn app.main import app --reload
-
-if __name__ == '__main__':
-    sys.exit(app --reload())
