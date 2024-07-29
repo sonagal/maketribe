@@ -6,6 +6,7 @@ import SellerRegistration from './components/SellerRegistration';
 import BuyerRegistration from './components/BuyerRegistration';
 import LoginPage from './components/LoginPage';
 import CreateNewDesignPage from './components/CreateNewDesignPage';
+import CreateVariationsPage from './components/CreateVariationsPage'; 
 import ModifyExistingDesignPage from './components/ModifyExistingDesignPage';
 import PreOrdersPage from './components/PreOrdersPage';
 import BidsPage from './components/BidsPage';
@@ -32,17 +33,18 @@ function AppContent() {
   const isBuyerRegistration = location.pathname === '/buyer-registration';
   const isLoginPage = location.pathname === '/login';
   const isModifyExistingDesign = location.pathname === '/modify-existing-design';
+  const isCreateVariationsDesign = location.pathname === '/create-variations';
 
   return (
     <div className="app-container">
       {!isLandingPage && !isSellerRegistration && !isBuyerRegistration && !isLoginPage && <Header />}
-      <div className={`main-wrapper ${location.pathname === '/consumer' || location.pathname === '/consumer-landing' || isModifyExistingDesign ? 'no-sidebar' : ''}`}>
-        {!isLandingPage && !isSellerRegistration && !isBuyerRegistration && !isLoginPage && location.pathname !== '/consumer' && location.pathname !== '/consumer-landing' && !isModifyExistingDesign && <Sidebar />}
-        <div className={`main-content ${isLandingPage || isSellerRegistration || isBuyerRegistration || isLoginPage || location.pathname === '/consumer' || location.pathname === '/consumer-landing' || isModifyExistingDesign ? 'full-width' : ''}`}>
+      <div className={`main-wrapper ${location.pathname === '/consumer' || location.pathname === '/consumer-landing' || isModifyExistingDesign || isCreateVariationsDesign ? 'no-sidebar' : ''}`}>
+        {!isLandingPage && !isSellerRegistration && !isBuyerRegistration && !isLoginPage && location.pathname !== '/consumer' && location.pathname !== '/consumer-landing' && !isModifyExistingDesign && !isCreateVariationsDesign && <Sidebar />}
+        <div className={`main-content ${isLandingPage || isSellerRegistration || isBuyerRegistration || isLoginPage || location.pathname === '/consumer' || location.pathname === '/consumer-landing' || isModifyExistingDesign || isCreateVariationsDesign ? 'full-width' : ''}`}>
           <Routes>
             <Route exact path="/" element={<CreateNewDesignPage />} />
             <Route path="/modify-existing-design" element={<ModifyExistingDesignPage />} />
-            <Route path="/" element={<LandingPage />} />
+            <Route path="/create-variations" element={<CreateVariationsPage />} /> 
             <Route path="/seller-registration" element={<SellerRegistration />} />
             <Route path="/buyer-registration" element={<BuyerRegistration />} />
             <Route path="/login" element={<LoginPage />} />
@@ -60,5 +62,3 @@ function AppContent() {
 }
 
 export default App;
-
-

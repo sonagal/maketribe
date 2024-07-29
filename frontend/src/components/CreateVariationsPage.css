@@ -1,0 +1,115 @@
+.create-variations-page {
+    font-family: Arial, sans-serif;
+    color: #333;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .main-content {
+    padding: 80px 20px; /* Adjust padding to ensure header visibility */
+  }
+  
+  .tabs {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+  }
+  
+  .tab {
+    padding: 10px 20px;
+    border: none;
+    background-color: #eee;
+    cursor: pointer;
+  }
+  
+  .tab.active {
+    background-color: #004d00;
+    color: white;
+  }
+  
+  .sub-tabs {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+  }
+  
+  .sub-tab {
+    padding: 10px 20px;
+    border: none;
+    background-color: #eee;
+    cursor: pointer;
+  }
+  
+  .sub-tab.active {
+    background-color: #004d00;
+    color: white;
+  }
+  
+  .design-form {
+    background-color: #f9f9f9;
+    padding: 20px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+  }
+  
+  .instructions {
+    color: #007bff;
+    margin-bottom: 20px;
+  }
+  
+  .upload-section {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+  }
+  
+  .select-images-button,
+  .upload-button,
+  .create-design-button,
+  .edit-button,
+  .continue-button,
+  .retry-button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .select-images-button,
+  .retry-button {
+    background-color: #ccc;
+  }
+  
+  .upload-button,
+  .edit-button {
+    background-color: black;
+    color: white;
+  }
+  
+  .create-design-button,
+  .continue-button {
+    background-color: #007bff;
+    color: white;
+  }
+  
+  .select-image-button {
+    background-color: #41ACF9;
+    color: white;
+    text-decoration: underline;
+  }
+  
+  .preview-section {
+    text-align: center;
+    margin-top: 40px;
+  }
+  
+  .preview-image {
+    max-width: 100%;
+    height: auto;
+    margin-bottom: 20px;
+  }
+  
+  .edit-section {
+    margin-bottom: 20px;
+  }
+  

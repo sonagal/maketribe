@@ -1,4 +1,5 @@
 from fastapi import FastAPI, HTTPException, File, UploadFile, Form
+from fastapi.responses import JSONResponse
 from fastapi.middleware.cors import CORSMiddleware
 from typing import List
 from openai import OpenAI
@@ -14,6 +15,7 @@ import uuid
 import shutil
 from io import BytesIO
 import aiofiles
+from PIL import Image
 
 app = FastAPI()
 
@@ -185,6 +187,59 @@ async def create_design(
         # Clean up temp files
         shutil.rmtree(temp_dir)
         logging.info(f"Deleted temp directory: {temp_dir}")
+
+
+def resize_image(image_path, max_size_mb=4):
+    with Image.open(image_path) as img:
+        # Calculate the resize factor to make the image smaller than max_size_mb
+        resize_factor = 1
+        while os.path.getsize(image_path) > max_size_mb * 1024 * 1024:
+            resize_factor -= 0.05
+            new_size = tuple([int(dim * resize_factor) for dim in img.size])
+            img = img.resize(new_size, Image.ANTIALIAS)
+            img.save(image_path)
+        return image_path
+
+@app.post("/create-variation")
+async def create_variation(image: UploadFile = File(...)):
+    # Check if the uploaded image is a PNG
+    if image.content_type != 'image/png':
+        raise HTTPException(status_code=400, detail="Uploaded image must be a PNG.")
+
+    # Create a unique directory for this request
+    request_id = str(uuid.uuid4())
+    upload_dir = os.path.join('uploads', request_id)
+    os.makedirs(upload_dir)
+
+    # Save the uploaded image
+    image_path = os.path.join(upload_dir, image.filename)
+    with open(image_path, "wb") as buffer:
+        shutil.copyfileobj(image.file, buffer)
+
+    # Resize the image if it's larger than 4 MB
+    if os.path.getsize(image_path) > 4 * 1024 * 1024:
+        resize_image(image_path, max_size_mb=4)
+
+    # Generate the variation using OpenAI
+    try:
+        response = client.images.create_variation(
+            model="dall-e-2",
+            image=open(image_path, "rb"),
+            n=1,
+            size="1024x1024"
+        )
+    except Exception as e:
+        shutil.rmtree(upload_dir)
+        return JSONResponse(status_code=500, content={"message": str(e)})
+
+    # Get the generated image URL
+    image_url = response.data[0].url
+
+
+    # Clean up the uploaded image (optional)
+    shutil.rmtree(upload_dir)
+
+    return {"image_url": image_url}
 
 
 @app.post("/edit-image")

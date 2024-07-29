@@ -45,7 +45,7 @@ const CreateVariationsPage = () => {
     formData.append('image', selectedImage);
 
     try {
-      const response = await axios.post('http://localhost:5000/create-variation', formData, {
+      const response = await axios.post('http://localhost:8000/create-variation', formData, {
         headers: {
           'Content-Type': 'multipart/form-data'
         }
@@ -57,9 +57,8 @@ const CreateVariationsPage = () => {
     }
   };
 
-  const handleRetry = async () => {
-    setGeneratedImageUrl(null);  // Clear the previous image URL
-    await handleCreateVariation();  // Fetch a new variation
+  const handleRetry = () => {
+    handleCreateVariation();
   };
 
   return (
