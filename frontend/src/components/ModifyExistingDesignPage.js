@@ -1,3 +1,4 @@
+// ModifyExistingDesignPage.js
 import React, { useState, useRef, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
@@ -136,6 +137,10 @@ const ModifyExistingDesignPage = () => {
     }, 'image/png');
   };
 
+  const handleCreateVariations = () => {
+    navigate('/create-variations');
+  };
+
   const [loadedImage] = useImage(image);
 
   useEffect(() => {
@@ -155,7 +160,7 @@ const ModifyExistingDesignPage = () => {
         <div className="sub-tabs">
           <button className="sub-tab active">Modify existing design</button>
           <button className="sub-tab" onClick={() => navigate('/')}>Create new design</button>
-          <button className="sub-tab">Create variations of existing design</button>
+          <button className="sub-tab" onClick={handleCreateVariations}>Create variations of existing design</button>
         </div>
         <div className="edit-instructions">
           Here you can edit an existing design which you want to upcycle by uploading an image or selecting from your product catalog.

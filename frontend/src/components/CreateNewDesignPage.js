@@ -1,69 +1,55 @@
+// CreateNewDesignPage.js
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import './CreateVariationsPage.css';
 import Header from './Header';
 import Footer from './Footer';
+import './CreateNewDesignPage.css';
 import axios from 'axios';
 
-const CreateVariationsPage = () => {
+function CreateNewDesignPage() {
+  const [prompt, setPrompt] = useState('');
+  const [images, setImages] = useState([]);
+  const [imagePreview, setImagePreview] = useState('');
   const navigate = useNavigate();
-  const [selectedImage, setSelectedImage] = useState(null);
-  const [generatedImageUrl, setGeneratedImageUrl] = useState(null);
-  const [error, setError] = useState('');
+
+  const handlePromptChange = (e) => {
+    setPrompt(e.target.value);
+  };
+
+  const handleImageUpload = (e) => {
+    setImages([...images, ...e.target.files]);
+  };
+
+  const handleCreateDesign = async () => {
+    try {
+      const formData = new FormData();
+      formData.append('prompt', prompt);
+      images.forEach((image, index) => {
+        formData.append('images', image);
+      });
+
+      const response = await axios.post('http://localhost:8000/create-design', formData, {
+        headers: {
+          'Content-Type': 'multipart/form-data',
+        },
+      });
+
+      setImagePreview(response.data.image_url);
+    } catch (error) {
+      console.error('Error creating design:', error);
+    }
+  };
 
   const handleModifyExistingDesign = () => {
     navigate('/modify-existing-design');
   };
 
-  const handleCreateNewDesign = () => {
-    navigate('/');
-  };
-
-  const handleImageUpload = (e) => {
-    const file = e.target.files[0];
-    if (file) {
-      if (file.type !== 'image/png') {
-        setError('Please upload a PNG image.');
-        return;
-      }
-      if (file.size > 4 * 1024 * 1024) {
-        setError('Please upload an image less than 4 MB.');
-        return;
-      }
-      setSelectedImage(file);
-      setError('');
-    }
-  };
-
-  const handleCreateVariation = async () => {
-    if (!selectedImage) {
-      alert('Please upload an image first.');
-      return;
-    }
-
-    const formData = new FormData();
-    formData.append('image', selectedImage);
-
-    try {
-      const response = await axios.post('http://localhost:5000/create-variation', formData, {
-        headers: {
-          'Content-Type': 'multipart/form-data'
-        }
-      });
-      setGeneratedImageUrl(response.data.image_url);
-    } catch (error) {
-      console.error('Error creating variation:', error);
-      setError('An error occurred while creating the variation.');
-    }
-  };
-
-  const handleRetry = async () => {
-    setGeneratedImageUrl(null);  // Clear the previous image URL
-    await handleCreateVariation();  // Fetch a new variation
+  const handleCreateVariations = () => {
+    navigate('/create-variations');
   };
 
   return (
-    <div className="create-variations-page">
+    <div className="create-new-design-page">
       <Header />
       <main className="main-content">
         <div className="tabs">
@@ -71,31 +57,37 @@ const CreateVariationsPage = () => {
           <button className="tab">Products Catalog</button>
         </div>
         <div className="sub-tabs">
-          <button className="sub-tab active">Create variations of existing design</button>
+          <button className="sub-tab active">Create new design</button>
           <button className="sub-tab" onClick={handleModifyExistingDesign}>Modify existing design</button>
-          <button className="sub-tab" onClick={handleCreateNewDesign}>Create new design</button>
+          <button className="sub-tab" onClick={handleCreateVariations}>Create variations of existing design</button>
         </div>
         <div className="design-form">
           <p className="instructions">
-            Here you can create modified versions of your existing product designs. You can upload here the image of your unsold inventory and our AI tool will suggest a new design with which you can upcycle your product.
+            Here you can create new designs and test the market before you actually create these products.
+            You can use the style from your previous products to create new ones by uploading up to 5 images of these products.
+          </p>
+          <p className="instruction-step">1. Tell us what you want to create, be as detailed as possible</p>
+          <input type="text" className="input-text" placeholder="Describe your design..." value={prompt} onChange={handlePromptChange} />
+          <p className="instruction-step">
+            2. Upload product images here if you want to apply a particular style representing your brand to the new design.
+            Our AI algorithm will retrieve the common style of the fashion items and apply it to the item you want to create.
           </p>
           <div className="upload-section">
-            <input type="file" className="select-images-button" onChange={handleImageUpload} />
-            <button className="select-image-button">Select an image from products</button>
+            <input type="file" multiple onChange={handleImageUpload} className="select-images-button" />
+            <button className="upload-button">Upload</button>
           </div>
-          {error && <p className="error-message">{error}</p>}
-          <button className="create-design-button" onClick={handleCreateVariation}>Create the new versions</button>
+          <button className="create-design-button" onClick={handleCreateDesign}>Create the Design</button>
         </div>
-        {generatedImageUrl && (
+        {imagePreview && (
           <div className="preview-section">
-            <img src={generatedImageUrl} alt="AI Generated" className="preview-image" />
+            <img src={imagePreview} alt="Design Preview" className="preview-image" />
             <div className="edit-section">
               <p>Would you like to edit this design?</p>
               <button className="edit-button">Edit in Design editor</button>
             </div>
             <button className="continue-button">Continue</button>
             <div className="retry-section">
-              <button className="retry-button" onClick={handleRetry}>Retry</button>
+              <button className="retry-button">Retry</button>
             </div>
           </div>
         )}
@@ -103,6 +95,6 @@ const CreateVariationsPage = () => {
       <Footer />
     </div>
   );
-};
+}
 
-export default CreateVariationsPage;
+export default CreateNewDesignPage;
